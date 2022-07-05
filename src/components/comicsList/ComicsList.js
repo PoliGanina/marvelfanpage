@@ -1,4 +1,5 @@
 import {useState, useEffect, useRef} from 'react';
+import { Link } from 'react-router-dom';
 
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/errorMessage';
@@ -58,7 +59,7 @@ const ComicsList = () => {
                 <li className="comics__item"
                     tabIndex={0}
                     ref={elem => itemRefs.current[i] = elem}
-                    key={item.id}
+                    key={i}
                     onClick={() => {
                         // props.onComicsSelected(item.id);
                         focusOnItem(i);
@@ -70,13 +71,13 @@ const ComicsList = () => {
                         }
                     }}
                 >
-                    <a href="#">
+                    <Link to={`/comics/${item.id}`}>
                         <img src={item.thumbnail} alt={item.title} style={imgStyle} className="comics__item-img"/>
                         <div className="comics__item-name">{item.title}</div>
                         <div className="comics__item-price">
                             {item.price? item.price : 'NOT AVAILABLE'}
                         </div>
-                    </a>
+                    </Link>
                 </li>
             )
         });

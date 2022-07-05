@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-
 import './charInfo.scss';
 
 import useMarvelService from '../../services/MarvelService';
@@ -81,14 +79,15 @@ const View = ({char}) => {
                         </a>
                     </div>
                 </div>
-            </div>
-            <div className="char__descr">
-                {description? description : "No description so far"}
-            </div>
-            <div className="char__comics">Comics:</div>
-            <ul className="char__comics-list">
-                {comicsView}
-            </ul>
+        </div>
+        <div className="char__descr">
+            {description? description : "No description so far"}
+        </div>
+        <div className="char__comics">Comics:</div>
+        <ul className="char__comics-list">
+            {comicsView}
+        </ul>
+        
         </>
     )
 }
